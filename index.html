@@ -50,7 +50,7 @@
   .sidebar {
     position: fixed;
     left: 0; top: 0; bottom: 0;
-    width: 280px;
+    width: var(--sidebar-width);
     background: var(--surface);
     border-right: 1px solid var(--border);
     display: flex;
@@ -158,7 +158,7 @@
     font-size: 13px;
     color: var(--text);
     border-left: 2px solid transparent;
-    transition: all 0.15s;
+    transition: all 0.15s ease, transform 0.15s ease;
     font-weight: 500;
     letter-spacing: 0.5px;
   }
@@ -167,6 +167,7 @@
     color: var(--text-bright);
     background: rgba(155,89,208,0.08);
     border-left-color: var(--accent);
+    transform: translateX(4px);
   }
 
   .nav-item.active {
@@ -196,7 +197,7 @@
 
   /* Main content */
   .main {
-    margin-left: 280px;
+    margin-left: var(--sidebar-width);
     min-height: 100vh;
     position: relative;
     z-index: 1;
@@ -237,8 +238,9 @@
   }
 
   .content {
-    padding: 40px;
-    max-width: 960px;
+    padding: clamp(24px, 3vw, 60px);
+    max-width: clamp(800px, 75vw, 1400px);
+    margin: 0 auto;
   }
 
   /* Welcome screen */
@@ -255,7 +257,7 @@
   }
 
   .welcome-header h1 {
-    font-size: 48px;
+    font-size: clamp(36px, 4vw, 72px);
     font-weight: 700;
     color: var(--text-bright);
     letter-spacing: 3px;
@@ -269,7 +271,7 @@
   .welcome-header p {
     color: var(--text-dim);
     font-family: 'Share Tech Mono', monospace;
-    font-size: 13px;
+    font-size: clamp(11px, 1vw, 16px);
     letter-spacing: 1px;
   }
 
@@ -335,14 +337,16 @@
     padding: 16px 20px;
     cursor: pointer;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 16px;
-    transition: all 0.2s;
+    transition: all 0.2s ease, transform 0.2s ease;
   }
 
   .recent-item:hover {
     border-color: var(--accent);
     background: var(--surface2);
+    transform: scaleY(1.03) translateX(4px);
+    transform-origin: left center;
   }
 
   .recent-item-tag {
@@ -392,7 +396,7 @@
   }
 
   .card-title {
-    font-size: 36px;
+    font-size: clamp(28px, 3.5vw, 52px);
     font-weight: 700;
     color: var(--text-bright);
     letter-spacing: 1px;
@@ -434,7 +438,7 @@
     font-size: 11px;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--text-dim);
+    color: #8b7aaa;
     margin-bottom: 12px;
     margin-top: 32px;
   }
@@ -583,7 +587,142 @@
   ::-webkit-scrollbar-thumb { background: var(--border); }
   ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-  /* Animations */
+  /* Responsive scaling */
+  :root {
+    --sidebar-width: 280px;
+  }
+
+  @media (min-width: 2560px) {
+    :root { --sidebar-width: 360px; }
+    body { font-size: 20px; }
+    .logo-name { font-size: 32px; }
+    .logo-tag, .logo-sub { font-size: 13px; }
+    .nav-item { font-size: 16px; padding: 10px 20px 10px 36px; }
+    .nav-category-header { font-size: 13px; padding: 10px 20px; }
+    .sidebar-footer { font-size: 13px; }
+    .search-box input { font-size: 16px; padding: 10px 16px; }
+    .topbar { padding: 18px 60px; }
+    .breadcrumb { font-size: 15px; }
+    .script-count { font-size: 14px; padding: 6px 16px; }
+    .content { padding: 60px; max-width: 1400px; }
+    .welcome-header h1 { font-size: 72px; }
+    .welcome-header p { font-size: 16px; }
+    .stat-number { font-size: 56px; }
+    .stat-label { font-size: 14px; letter-spacing: 4px; }
+    .stat-card { padding: 32px; }
+    .recent-item { padding: 20px 28px; }
+    .recent-item-name { font-size: 18px; }
+    .recent-item-tag { font-size: 12px; }
+    .card-title { font-size: 52px; }
+    .card-category { font-size: 13px; }
+    .card-desc { font-size: 18px; }
+    .section-label { font-size: 14px; }
+    .code-lang { font-size: 13px; }
+    .copy-btn { font-size: 12px; padding: 6px 16px; }
+    pre { font-size: 15px; padding: 28px; }
+    .params-table th { font-size: 13px; padding: 14px 20px; }
+    .params-table td { font-size: 15px; padding: 14px 20px; }
+    .notes-box { padding: 28px 32px; }
+    .note-item { font-size: 16px; }
+    .tag { font-size: 12px; padding: 5px 14px; }
+    .conv-grid { grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+    .conv-section { padding: 28px; }
+    .conv-section-title { font-size: 13px; }
+    .conv-row { font-size: 17px; }
+    .conv-suffix { font-size: 15px; }
+  }
+
+  @media (min-width: 3840px) {
+    :root { --sidebar-width: 480px; }
+    body { font-size: 26px; }
+    .logo-name { font-size: 42px; }
+    .content { padding: 80px; max-width: 2000px; }
+    .card-title { font-size: 72px; }
+    pre { font-size: 20px; }
+    .conv-grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
+  }
+
+  @media (max-width: 1200px) {
+    :root { --sidebar-width: 240px; }
+    .content { padding: 28px; }
+    .card-title { font-size: 28px; }
+    .welcome-header h1 { font-size: 36px; }
+    .stats-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .conv-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .stat-glyph {
+    font-size: 20px;
+    color: rgba(192,132,252,0.4);
+    margin-bottom: 8px;
+    font-family: 'Share Tech Mono', monospace;
+  }
+
+  .home-search-wrap {
+    margin-bottom: 36px;
+  }
+
+  .home-search {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    color: var(--text-bright);
+    padding: 14px 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    letter-spacing: 1px;
+  }
+
+  .home-search:focus {
+    background: var(--surface2);
+    border-left-color: var(--accent2);
+  }
+
+  .home-search::placeholder { color: var(--text-dim); }
+
+  .index-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .index-header h2 {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #8b7aaa;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .last-updated {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+
+  .recent-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+
+  .recent-item-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    font-family: 'Share Tech Mono', monospace;
+  }
+
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
@@ -629,6 +768,30 @@
         </div>
       </div>
     </div>
+    <div class="nav-category" id="cat-attributes">
+      <div class="nav-category-header open" onclick="toggleCategory('cat-attributes')">
+        <span>Attributes</span>
+        <span class="arrow">▶</span>
+      </div>
+      <div class="nav-items open">
+        <div class="nav-item" onclick="showScript('change-default-value')" data-script="change-default-value" data-tags="attribute default value enum python">
+          <span class="dot"></span>
+          Change Default Attribute Value
+        </div>
+      </div>
+    </div>
+    <div class="nav-category" id="cat-reference">
+      <div class="nav-category-header open" onclick="toggleCategory('cat-reference')">
+        <span>Reference</span>
+        <span class="arrow">▶</span>
+      </div>
+      <div class="nav-items open">
+        <div class="nav-item" onclick="showScript('naming-conventions')" data-script="naming-conventions" data-tags="naming prefix suffix convention node">
+          <span class="dot"></span>
+          Naming Conventions
+        </div>
+      </div>
+    </div>
   </nav>
 
   <div class="sidebar-footer">
@@ -641,9 +804,9 @@
 <main class="main">
   <div class="topbar">
     <div class="breadcrumb">
-      AVIARIGG <span>/</span> <span id="breadcrumb-text">HOME</span>
+      <span onclick="showHome()" style="cursor:pointer; color:var(--text-dim); transition:color 0.15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-dim)'">AVIARIGG</span> <span>/</span> <span id="breadcrumb-text">HOME</span>
     </div>
-    <div class="script-count" id="script-count">2 SCRIPTS</div>
+    <div class="script-count" id="script-count">3 SCRIPTS // 1 REF</div>
   </div>
 
   <div class="content">
@@ -657,30 +820,62 @@
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-number" id="total-count">2</div>
+          <div class="stat-glyph">⌗</div>
+          <div class="stat-number" id="total-count">3</div>
           <div class="stat-label">Total Scripts</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">1</div>
-          <div class="stat-label">Categories</div>
+          <div class="stat-glyph">◈</div>
+          <div class="stat-number">Python 3</div>
+          <div class="stat-label">Language</div>
         </div>
         <div class="stat-card">
+          <div class="stat-glyph">◎</div>
           <div class="stat-number">2026</div>
           <div class="stat-label">Maya Version</div>
         </div>
       </div>
 
+      <div class="home-search-wrap">
+        <input type="text" class="home-search" placeholder="⌕  Search scripts..." oninput="filterScripts(this.value); syncSidebarSearch(this.value)">
+      </div>
+
       <div class="recent-section">
-        <h2>// Script Index</h2>
+        <div class="index-header">
+          <h2>// Script Index</h2>
+          <span class="last-updated">Last updated: April 2026</span>
+        </div>
         <div class="recent-list" id="recent-list">
           <div class="recent-item" onclick="showScript('mirror-nonlinear')">
             <span class="recent-item-tag">DEFORMERS</span>
-            <span class="recent-item-name">Mirror NonLinear Deformer Weights</span>
+            <div class="recent-item-info">
+              <span class="recent-item-name">Mirror NonLinear Deformer Weights</span>
+              <span class="recent-item-desc">Mirror painted deformer weights left→right on a symmetrical mesh. Maya 2022+ method.</span>
+            </div>
             <span class="recent-item-arrow">▶</span>
           </div>
           <div class="recent-item" onclick="showScript('add-geo-deformer')">
             <span class="recent-item-tag">DEFORMERS</span>
-            <span class="recent-item-name">Add Geometry to Deformer</span>
+            <div class="recent-item-info">
+              <span class="recent-item-name">Add Geometry to Deformer</span>
+              <span class="recent-item-desc">Add a control group or mesh to a nonLinear deformer, with optional hierarchy exclusions.</span>
+            </div>
+            <span class="recent-item-arrow">▶</span>
+          </div>
+          <div class="recent-item" onclick="showScript('change-default-value')">
+            <span class="recent-item-tag">ATTRIBUTES</span>
+            <div class="recent-item-info">
+              <span class="recent-item-name">Change Default Attribute Value</span>
+              <span class="recent-item-desc">Edit the default value of any existing attribute, including enums.</span>
+            </div>
+            <span class="recent-item-arrow">▶</span>
+          </div>
+          <div class="recent-item" onclick="showScript('naming-conventions')">
+            <span class="recent-item-tag">REFERENCE</span>
+            <div class="recent-item-info">
+              <span class="recent-item-name">Naming Conventions</span>
+              <span class="recent-item-desc">Full suffix reference for all node types used in AviaRigg rigs.</span>
+            </div>
             <span class="recent-item-arrow">▶</span>
           </div>
         </div>
@@ -794,7 +989,81 @@ cmds.<span class="fn">copyDeformerWeights</span>(
 
     </div><!-- end script card -->
 
-    <!-- Script: Add Geometry to Deformer -->
+    <!-- Script: Change Default Attribute Value -->
+    <div class="script-card" id="script-change-default-value">
+      <div class="card-header">
+        <div class="card-category">// Attributes</div>
+        <div class="card-title">Change Default<br>Attribute Value</div>
+        <div class="card-desc">
+          Changes the default value of an existing attribute on a node. Useful for enum attributes
+          (e.g. off/on) where you want the default to be something other than 0.
+          Works on any numeric or enum attribute.
+        </div>
+        <div class="tags">
+          <span class="tag tag-python">Python</span>
+          <span class="tag tag-deformer">Attributes</span>
+        </div>
+      </div>
+
+      <div class="section-label">// Script</div>
+      <div class="code-wrap">
+        <div class="code-toolbar">
+          <span class="code-lang">Python</span>
+          <button class="copy-btn" onclick="copyCode('code-change-default', this)">Copy</button>
+        </div>
+        <pre id="code-change-default"><span class="kw">import</span> maya.cmds <span class="kw">as</span> cmds
+
+cmds.<span class="fn">addAttr</span>(<span class="str">"your_node.your_attribute"</span>, <span class="kv">edit</span>=<span class="nb">True</span>, <span class="kv">defaultValue</span>=<span class="nb">1</span>)
+<span class="cm"># replace "your_node" with your node name
+# replace "your_attribute" with your attribute name
+# replace 1 with your desired default value</span></pre>
+      </div>
+
+      <div class="section-label">// Parameters</div>
+      <table class="params-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="param-name">node.attribute</td>
+            <td class="param-type">str</td>
+            <td class="param-desc">The node and attribute in dot notation (e.g. "head_ctl.tweak")</td>
+          </tr>
+          <tr>
+            <td class="param-name">edit</td>
+            <td class="param-type">bool</td>
+            <td class="param-desc">Must be True to modify an existing attribute rather than create a new one</td>
+          </tr>
+          <tr>
+            <td class="param-name">defaultValue</td>
+            <td class="param-type">float</td>
+            <td class="param-desc">The new default value. For enums: 0 = first option, 1 = second option, etc.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-label">// Notes</div>
+      <div class="notes-box">
+        <div class="note-item">
+          <span class="note-bullet">▸</span>
+          <span>For enum attributes, the default value is the index — 0 = first enum, 1 = second, etc.</span>
+        </div>
+        <div class="note-item">
+          <span class="note-bullet">▸</span>
+          <span>This only changes the default — it does not change the current value. Use setAttr separately if needed.</span>
+        </div>
+        <div class="note-item">
+          <span class="note-bullet">▸</span>
+          <span>The default value is what the attribute resets to when you right-click → Set Default Value in Maya.</span>
+        </div>
+      </div>
+
+    </div><!-- end script card -->
     <div class="script-card" id="script-add-geo-deformer">
       <div class="card-header">
         <div class="card-category">// Deformers</div>
@@ -889,7 +1158,204 @@ ctls = cmds.<span class="fn">listRelatives</span>(<span class="str">"ctl_grp"</s
         </div>
       </div>
 
+      <div class="section-label" style="margin-top:32px;">// Add with Exclusions</div>
+      <div style="color:var(--text); font-size:14px; line-height:1.7; margin-bottom:12px;">
+        Add an entire group to the deformer but exclude specific control hierarchies from being affected.
+        Run this as a single script — it adds the group first, then removes the excluded roots and all their descendants.
+      </div>
+      <div class="code-wrap">
+        <div class="code-toolbar">
+          <span class="code-lang">Python</span>
+          <button class="copy-btn" onclick="copyCode('code-add-geo-exclude', this)">Copy</button>
+        </div>
+        <pre id="code-add-geo-exclude"><span class="kw">import</span> maya.cmds <span class="kw">as</span> cmds
+
+<span class="cm"># Step 1 — Add the entire control group to the deformer</span>
+cmds.<span class="fn">deformer</span>(<span class="str">"jaw_bend"</span>, <span class="kv">edit</span>=<span class="nb">True</span>, <span class="kv">geometry</span>=<span class="str">"ctl_grp"</span>)
+
+<span class="cm"># Step 2 — List every control root you want to EXCLUDE
+# Add as many as needed — entire hierarchy under each will be removed</span>
+exclude_roots = [
+    <span class="str">"l_ear_master_ctl"</span>,   <span class="cm"># exclude left ear and all children</span>
+    <span class="str">"r_ear_master_ctl"</span>,   <span class="cm"># exclude right ear and all children</span>
+    <span class="str">"jaw_deformer_ctl"</span>,   <span class="cm"># exclude jaw deformer ctl (avoids double transform)</span>
+]
+
+<span class="cm"># Step 3 — Remove excluded hierarchies from the deformer</span>
+<span class="kw">for</span> root <span class="kw">in</span> exclude_roots:
+    descendants = cmds.<span class="fn">listRelatives</span>(root, <span class="kv">allDescendents</span>=<span class="nb">True</span>, <span class="kv">type</span>=<span class="str">"nurbsCurve"</span>, <span class="kv">fullPath</span>=<span class="nb">True</span>) <span class="kw">or</span> []
+    shapes = cmds.<span class="fn">listRelatives</span>(root, <span class="kv">shapes</span>=<span class="nb">True</span>, <span class="kv">type</span>=<span class="str">"nurbsCurve"</span>, <span class="kv">fullPath</span>=<span class="nb">True</span>) <span class="kw">or</span> []
+    all_shapes = <span class="fn">list</span>(<span class="fn">set</span>(descendants + shapes))
+    <span class="kw">for</span> shape <span class="kw">in</span> all_shapes:
+        <span class="kw">try</span>:
+            cmds.<span class="fn">deformer</span>(<span class="str">"jaw_bend"</span>, <span class="kv">edit</span>=<span class="nb">True</span>, <span class="kv">remove</span>=<span class="nb">True</span>, <span class="kv">geometry</span>=shape)
+        <span class="kw">except</span> <span class="nb">Exception</span> <span class="kw">as</span> e:
+            <span class="fn">print</span>(<span class="str">f"Skipped <span class="kv">{shape}</span>: <span class="kv">{e}</span>"</span>)
+
+<span class="fn">print</span>(<span class="str">"Done"</span>)</pre>
+      </div>
+      <div class="notes-box" style="margin-top:12px;">
+        <div class="note-item">
+          <span class="note-bullet">▸</span>
+          <span>Replace <code style="color:var(--accent);font-family:'Share Tech Mono',monospace">"jaw_bend"</code> with your deformer name and <code style="color:var(--accent);font-family:'Share Tech Mono',monospace">"ctl_grp"</code> with your group name.</span>
+        </div>
+        <div class="note-item">
+          <span class="note-bullet">▸</span>
+          <span>Add or remove entries in <code style="color:var(--accent);font-family:'Share Tech Mono',monospace">exclude_roots</code> as needed — one name per line.</span>
+        </div>
+        <div class="note-item">
+          <span class="note-bullet">▸</span>
+          <span>Note the spelling: <code style="color:var(--accent);font-family:'Share Tech Mono',monospace">allDescendents</code> — Maya uses an 'e', not 'a'. Wrong spelling will error.</span>
+        </div>
+        <div class="note-item">
+          <span class="note-bullet">▸</span>
+          <span><code style="color:var(--accent);font-family:'Share Tech Mono',monospace">fullPath=True</code> is required — without it Maya errors if two shapes share the same name.</span>
+        </div>
+        <div class="note-item">
+          <span class="note-bullet">▸</span>
+          <span>Exclude controllers that would get double transforms — any ctl that drives the deformer itself should be in the exclusion list.</span>
+        </div>
+      </div>
+
     </div><!-- end script card -->
+
+    <!-- Naming Conventions -->
+    <div class="script-card" id="script-naming-conventions">
+      <div class="card-header">
+        <div class="card-category">// Reference</div>
+        <div class="card-title">Naming<br>Conventions</div>
+        <div class="card-desc">
+          Standard suffix conventions for all node types used in AviaRigg rigs.
+          Consistent naming keeps rigs readable, maintainable, and scriptable.
+        </div>
+      </div>
+
+      <style>
+        .conv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+        .conv-section { background: var(--surface); border: 1px solid var(--border); padding: 20px; }
+        .conv-section-title {
+          font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+          color: var(--accent); margin-bottom: 14px; padding-bottom: 10px;
+          border-bottom: 1px solid var(--border); font-family: 'Share Tech Mono', monospace;
+        }
+        .conv-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.03); font-size: 14px; }
+        .conv-row:last-child { border-bottom: none; }
+        .conv-name { color: var(--text); }
+        .conv-suffix { font-family: 'Share Tech Mono', monospace; color: #c084fc; font-size: 13px; background: rgba(192,132,252,0.08); padding: 2px 10px; border: 1px solid rgba(192,132,252,0.2); }
+      </style>
+
+      <div class="conv-grid">
+
+        <div class="conv-section">
+          <div class="conv-section-title">Transforms & Hierarchy</div>
+          <div class="conv-row"><span class="conv-name">Transform</span><span class="conv-suffix">transform</span></div>
+          <div class="conv-row"><span class="conv-name">Group</span><span class="conv-suffix">grp</span></div>
+          <div class="conv-row"><span class="conv-name">Offset</span><span class="conv-suffix">offset</span></div>
+          <div class="conv-row"><span class="conv-name">Locator</span><span class="conv-suffix">loc</span></div>
+          <div class="conv-row"><span class="conv-name">Connection Offset</span><span class="conv-suffix">con</span></div>
+        </div>
+
+        <div class="conv-section">
+          <div class="conv-section-title">Controllers</div>
+          <div class="conv-row"><span class="conv-name">Control</span><span class="conv-suffix">ctl</span></div>
+          <div class="conv-row"><span class="conv-name">Control Offset</span><span class="conv-suffix">ctl_offset</span></div>
+          <div class="conv-row"><span class="conv-name">Gimbal Control</span><span class="conv-suffix">gimbal_ctl</span></div>
+          <div class="conv-row"><span class="conv-name">Set Driven Key</span><span class="conv-suffix">sdk</span></div>
+        </div>
+
+        <div class="conv-section">
+          <div class="conv-section-title">Joints</div>
+          <div class="conv-row"><span class="conv-name">Joint</span><span class="conv-suffix">jnt</span></div>
+          <div class="conv-row"><span class="conv-name">Bind Joint</span><span class="conv-suffix">bind_jnt</span></div>
+          <div class="conv-row"><span class="conv-name">Twist Joint</span><span class="conv-suffix">twist_jnt</span></div>
+          <div class="conv-row"><span class="conv-name">End Joint</span><span class="conv-suffix">end_jnt</span></div>
+          <div class="conv-row"><span class="conv-name">IK Joint</span><span class="conv-suffix">ik_jnt</span></div>
+          <div class="conv-row"><span class="conv-name">FK Joint</span><span class="conv-suffix">fk_jnt</span></div>
+          <div class="conv-row"><span class="conv-name">Driver Joint</span><span class="conv-suffix">drv_jnt</span></div>
+        </div>
+
+        <div class="conv-section">
+          <div class="conv-section-title">Geometry</div>
+          <div class="conv-row"><span class="conv-name">Mesh</span><span class="conv-suffix">geo</span></div>
+          <div class="conv-row"><span class="conv-name">NURBS Surface</span><span class="conv-suffix">nrb</span></div>
+          <div class="conv-row"><span class="conv-name">NURBS Curve</span><span class="conv-suffix">crv</span></div>
+        </div>
+
+        <div class="conv-section">
+          <div class="conv-section-title">Deformers</div>
+          <div class="conv-row"><span class="conv-name">Skin Cluster</span><span class="conv-suffix">sc</span></div>
+          <div class="conv-row"><span class="conv-name">Blendshape</span><span class="conv-suffix">bs</span></div>
+          <div class="conv-row"><span class="conv-name">Cluster</span><span class="conv-suffix">cls</span></div>
+          <div class="conv-row"><span class="conv-name">Lattice</span><span class="conv-suffix">lat</span></div>
+          <div class="conv-row"><span class="conv-name">Wrap</span><span class="conv-suffix">wrap</span></div>
+          <div class="conv-row"><span class="conv-name">Delta Mush</span><span class="conv-suffix">dm</span></div>
+          <div class="conv-row"><span class="conv-name">Squash</span><span class="conv-suffix">squash</span></div>
+          <div class="conv-row"><span class="conv-name">Bend</span><span class="conv-suffix">bend</span></div>
+          <div class="conv-row"><span class="conv-name">NonLinear</span><span class="conv-suffix">nonLin</span></div>
+        </div>
+
+        <div class="conv-section">
+          <div class="conv-section-title">Utility Nodes</div>
+          <div class="conv-row"><span class="conv-name">Multiply Divide</span><span class="conv-suffix">md</span></div>
+          <div class="conv-row"><span class="conv-name">Plus Minus Average</span><span class="conv-suffix">pma</span></div>
+          <div class="conv-row"><span class="conv-name">Condition</span><span class="conv-suffix">cond</span></div>
+          <div class="conv-row"><span class="conv-name">Clamp</span><span class="conv-suffix">clamp</span></div>
+          <div class="conv-row"><span class="conv-name">Remap Value</span><span class="conv-suffix">rmv</span></div>
+          <div class="conv-row"><span class="conv-name">Blend Colors</span><span class="conv-suffix">bc</span></div>
+          <div class="conv-row"><span class="conv-name">Blend Two Attr</span><span class="conv-suffix">bta</span></div>
+          <div class="conv-row"><span class="conv-name">Reverse</span><span class="conv-suffix">rev</span></div>
+          <div class="conv-row"><span class="conv-name">Set Range</span><span class="conv-suffix">sr</span></div>
+        </div>
+
+        <div class="conv-section">
+          <div class="conv-section-title">Math / Matrix Nodes</div>
+          <div class="conv-row"><span class="conv-name">Sum</span><span class="conv-suffix">sum</span></div>
+          <div class="conv-row"><span class="conv-name">Decompose Matrix</span><span class="conv-suffix">dcm</span></div>
+          <div class="conv-row"><span class="conv-name">Compose Matrix</span><span class="conv-suffix">cm</span></div>
+          <div class="conv-row"><span class="conv-name">Inverse Matrix</span><span class="conv-suffix">invMat</span></div>
+          <div class="conv-row"><span class="conv-name">Mult Matrix</span><span class="conv-suffix">mmx</span></div>
+        </div>
+
+        <div class="conv-section">
+          <div class="conv-section-title">Constraints</div>
+          <div class="conv-row"><span class="conv-name">Parent Constraint</span><span class="conv-suffix">pc</span></div>
+          <div class="conv-row"><span class="conv-name">Point Constraint</span><span class="conv-suffix">pointCon</span></div>
+          <div class="conv-row"><span class="conv-name">Orient Constraint</span><span class="conv-suffix">oc</span></div>
+          <div class="conv-row"><span class="conv-name">Scale Constraint</span><span class="conv-suffix">sc</span></div>
+          <div class="conv-row"><span class="conv-name">Aim Constraint</span><span class="conv-suffix">ac</span></div>
+          <div class="conv-row"><span class="conv-name">Matrix Constraint</span><span class="conv-suffix">matCon</span></div>
+        </div>
+
+        <div class="conv-section">
+          <div class="conv-section-title">IK</div>
+          <div class="conv-row"><span class="conv-name">IK Handle</span><span class="conv-suffix">ikh</span></div>
+          <div class="conv-row"><span class="conv-name">IK Effector</span><span class="conv-suffix">ike</span></div>
+          <div class="conv-row"><span class="conv-name">Spline IK</span><span class="conv-suffix">splineIK</span></div>
+        </div>
+
+        <div class="conv-section">
+          <div class="conv-section-title">Spaces & Locators</div>
+          <div class="conv-row"><span class="conv-name">Local Space Locator</span><span class="conv-suffix">local_loc</span></div>
+          <div class="conv-row"><span class="conv-name">World Space Locator</span><span class="conv-suffix">world_loc</span></div>
+          <div class="conv-row"><span class="conv-name">Space Switch</span><span class="conv-suffix">space_sw</span></div>
+        </div>
+
+        <div class="conv-section">
+          <div class="conv-section-title">Rigging Misc</div>
+          <div class="conv-row"><span class="conv-name">Follicle</span><span class="conv-suffix">fol</span></div>
+          <div class="conv-row"><span class="conv-name">Curve Info</span><span class="conv-suffix">crv_info</span></div>
+          <div class="conv-row"><span class="conv-name">Motion Path</span><span class="conv-suffix">mpath</span></div>
+        </div>
+
+        <div class="conv-section">
+          <div class="conv-section-title">Display & Organization</div>
+          <div class="conv-row"><span class="conv-name">Display Layer</span><span class="conv-suffix">layer</span></div>
+          <div class="conv-row"><span class="conv-name">Set</span><span class="conv-suffix">set</span></div>
+        </div>
+
+      </div><!-- end conv-grid -->
+
+    </div><!-- end naming conventions card -->
 
   </div><!-- end content -->
 </main>
@@ -903,6 +1369,14 @@ ctls = cmds.<span class="fn">listRelatives</span>(<span class="str">"ctl_grp"</s
     'add-geo-deformer': {
       category: 'Deformers',
       name: 'Add Geometry to Deformer'
+    },
+    'change-default-value': {
+      category: 'Attributes',
+      name: 'Change Default Attribute Value'
+    },
+    'naming-conventions': {
+      category: 'Reference',
+      name: 'Naming Conventions'
     }
   };
 
@@ -959,6 +1433,10 @@ ctls = cmds.<span class="fn">listRelatives</span>(<span class="str">"ctl_grp"</s
         btn.classList.remove('copied');
       }, 2000);
     });
+  }
+
+  function syncSidebarSearch(val) {
+    document.getElementById('searchInput').value = val;
   }
 
   function filterScripts(query) {
