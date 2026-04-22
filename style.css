@@ -609,7 +609,7 @@ body::before {
 
 .port-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 480px);
   gap: 1px;
   background: var(--border);
 }
@@ -630,6 +630,7 @@ body::before {
   opacity: 0.45;
   position: relative;
   overflow: hidden;
+  width: 480px;
 }
 .port-card.placeholder { cursor: default; }
 .port-card:not(.placeholder) { opacity: 1; cursor: pointer; }
@@ -637,7 +638,7 @@ body::before {
 .port-card:not(.placeholder):hover .pc-thumb img { transform: scale(1.05); }
 
 .pc-thumb {
-  aspect-ratio: 4/3;
+  aspect-ratio: 16/9;
   background: var(--surface2);
   display: flex;
   align-items: center;
@@ -916,18 +917,69 @@ body::before {
   border-top: 1px solid var(--border);
 }
 
-/* 2x2 image grid */
-.pb-img-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--border);
+/* Carousel */
+.pb-carousel {
+  position: relative;
   margin-bottom: 64px;
 }
+.pb-carousel-track-wrap {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  position: relative;
+}
+.pb-carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+.pb-carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  border: none;
+}
+.pb-carousel-slide::before,
+.pb-carousel-slide::after { display: none; }
+.pb-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  background: rgba(6,6,15,0.8);
+  border: 1px solid var(--border);
+  color: var(--text-bright);
+  font-size: clamp(16px, 1.5vw, 22px);
+  width: clamp(36px, 3vw, 48px);
+  height: clamp(36px, 3vw, 48px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.pb-carousel-btn:hover {
+  background: rgba(139,79,200,0.3);
+  border-color: var(--accent);
+}
+.pb-carousel-prev { left: -24px; }
+.pb-carousel-next { right: -24px; }
+.pb-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+.pb-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.pb-dot.active { background: var(--accent); }
 
 /* Sketchfab */
 .pb-sketchfab {
-  margin-bottom: 64px;
+  max-width: 50%;
+  margin: 0 auto 64px;
 }
 .pb-sketchfab iframe {
   width: 100%;

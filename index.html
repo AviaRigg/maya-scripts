@@ -308,24 +308,36 @@
       <div class="pb-spec"><span class="pb-spec-label">Year</span><span class="pb-spec-val">2025</span></div>
     </div>
 
-    <!-- IMAGE GRID -->
+    <!-- CAROUSEL -->
     <div class="pb-section-label">// Breakdown</div>
-    <div class="pb-img-grid">
-      <div class="pb-img-frame">
-        <img src="./projects/f1_SF25/images/F1_Rig.png" alt="Rig">
-        <div class="pb-img-caption">// Rig View</div>
+    <div class="pb-carousel">
+      <button class="pb-carousel-btn pb-carousel-prev" onclick="carouselPrev()">&#8592;</button>
+      <div class="pb-carousel-track-wrap">
+        <div class="pb-carousel-track" id="pb-carousel-track">
+          <div class="pb-img-frame pb-carousel-slide">
+            <img src="./projects/f1_SF25/images/F1_Rig.png" alt="Rig">
+            <div class="pb-img-caption">// Rig View</div>
+          </div>
+          <div class="pb-img-frame pb-carousel-slide">
+            <img src="./projects/f1_SF25/images/F1_Picker.png" alt="Picker">
+            <div class="pb-img-caption">// AnimSchool Picker</div>
+          </div>
+          <div class="pb-img-frame pb-carousel-slide">
+            <img src="./projects/f1_SF25/images/F1_FBX.png" alt="FBX">
+            <div class="pb-img-caption">// FBX Model</div>
+          </div>
+          <div class="pb-img-frame pb-carousel-slide">
+            <img src="./projects/f1_SF25/images/F1_Blender.png" alt="Blender">
+            <div class="pb-img-caption">// Blender Version</div>
+          </div>
+        </div>
       </div>
-      <div class="pb-img-frame">
-        <img src="./projects/f1_SF25/images/F1_Picker.png" alt="Picker">
-        <div class="pb-img-caption">// AnimSchool Picker</div>
-      </div>
-      <div class="pb-img-frame">
-        <img src="./projects/f1_SF25/images/F1_FBX.png" alt="FBX">
-        <div class="pb-img-caption">// FBX Model</div>
-      </div>
-      <div class="pb-img-frame">
-        <img src="./projects/f1_SF25/images/F1_Blender.png" alt="Blender">
-        <div class="pb-img-caption">// Blender Version</div>
+      <button class="pb-carousel-btn pb-carousel-next" onclick="carouselNext()">&#8594;</button>
+      <div class="pb-carousel-dots" id="pb-carousel-dots">
+        <span class="pb-dot active" onclick="carouselGoTo(0)"></span>
+        <span class="pb-dot" onclick="carouselGoTo(1)"></span>
+        <span class="pb-dot" onclick="carouselGoTo(2)"></span>
+        <span class="pb-dot" onclick="carouselGoTo(3)"></span>
       </div>
     </div>
 
@@ -1463,6 +1475,19 @@ function copyCode(id, btn) {
     setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
   });
 }
+
+// ── Carousel ──
+let carouselIndex = 0;
+const carouselTotal = 4;
+function carouselUpdate() {
+  const track = document.getElementById('pb-carousel-track');
+  if (!track) return;
+  track.style.transform = `translateX(-${carouselIndex * 100}%)`;
+  document.querySelectorAll('.pb-dot').forEach((d, i) => d.classList.toggle('active', i === carouselIndex));
+}
+function carouselNext() { carouselIndex = (carouselIndex + 1) % carouselTotal; carouselUpdate(); }
+function carouselPrev() { carouselIndex = (carouselIndex - 1 + carouselTotal) % carouselTotal; carouselUpdate(); }
+function carouselGoTo(i) { carouselIndex = i; carouselUpdate(); }
 
 function setGallerySketchfab(thumb, modelId) {
   const main = document.getElementById('gallery-main-img');
