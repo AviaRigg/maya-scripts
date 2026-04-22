@@ -206,36 +206,79 @@
       <div class="eyebrow">Work</div>
       <div class="section-h">Portfolio</div>
     </div>
-    <div class="reel-section">
-    <div class="showreel">
-      <div class="showreel-play">▷</div>
-      <div class="showreel-label">Showreel — Coming Soon</div>
-      <div class="showreel-sub">Reel in progress — check back soon</div>
+
+    <!-- FEATURED PROJECT -->
+    <div class="port-featured" onclick="showPage('port-f1')">
+      <div class="port-featured-img">
+        <div class="shop-card-scan"></div>
+        <img src="./projects/f1_SF25/images/F1_Rendered.png" alt="F1 SF-25">
+        <div class="port-featured-overlay">
+          <div class="port-featured-tag">// Featured Project</div>
+          <div class="port-featured-cta">View Breakdown ▶</div>
+        </div>
+      </div>
+      <div class="port-featured-body">
+        <div class="port-featured-meta">
+          <span class="port-featured-cat">Hard Surface Rig</span>
+          <span class="port-featured-year">2025</span>
+        </div>
+        <div class="port-featured-title">Formula 1<br><span class="accent">SF-25 Livery</span></div>
+        <p class="port-featured-desc">Full hard surface rig for the Ferrari SF-25. Auto-spinning wheels, DRS system, dual livery switching, AnimSchool picker support. Built in Maya 2022+ with a clean animator-friendly hierarchy.</p>
+        <div class="port-featured-tags">
+          <span class="ptag">Maya 2022+</span>
+          <span class="ptag">Hard Surface</span>
+          <span class="ptag">DRS System</span>
+          <span class="ptag">Dual Livery</span>
+          <span class="ptag">AnimSchool Picker</span>
+        </div>
+        <div class="port-featured-stats">
+          <div class="pfs"><span class="pfs-val">2</span><span class="pfs-label">Liveries</span></div>
+          <div class="pfs"><span class="pfs-val">4K</span><span class="pfs-label">Textures</span></div>
+          <div class="pfs"><span class="pfs-val">DRS</span><span class="pfs-label">System</span></div>
+          <div class="pfs"><span class="pfs-val">Auto</span><span class="pfs-label">Wheel Spin</span></div>
+        </div>
+      </div>
     </div>
-    <div class="port-section-label">// Projects</div>
+
+    <!-- OTHER PROJECTS GRID -->
+    <div class="port-section-label">// More Projects</div>
     <div class="port-grid">
+      <div class="port-card" style="opacity:1; cursor:pointer;" onclick="showPage('port-f1')">
+        <div class="pc-thumb" style="padding:0; overflow:hidden;">
+          <img src="./projects/f1_SF25/images/F1_Rig.png" alt="F1 Rig" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="pc-body">
+          <div class="pc-cat">Hard Surface</div>
+          <div class="pc-title">F1 SF-25 — Rig View</div>
+          <div class="pc-desc">Controller hierarchy and picker setup.</div>
+        </div>
+      </div>
+      <div class="port-card" style="opacity:1; cursor:pointer;" onclick="showPage('port-f1')">
+        <div class="pc-thumb" style="padding:0; overflow:hidden;">
+          <img src="./projects/f1_SF25/images/F1_Picker.png" alt="F1 Picker" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="pc-body">
+          <div class="pc-cat">Hard Surface</div>
+          <div class="pc-title">F1 SF-25 — Picker</div>
+          <div class="pc-desc">AnimSchool picker layout for animators.</div>
+        </div>
+      </div>
+      <div class="port-card" style="opacity:1; cursor:pointer;" onclick="showPage('port-f1')">
+        <div class="pc-thumb" style="padding:0; overflow:hidden;">
+          <img src="./projects/f1_SF25/images/F1_Blender.png" alt="F1 Blender" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="pc-body">
+          <div class="pc-cat">Hard Surface</div>
+          <div class="pc-title">F1 SF-25 — Blender</div>
+          <div class="pc-desc">Unrigged FBX version in Blender.</div>
+        </div>
+      </div>
       <div class="port-card placeholder">
         <div class="pc-thumb">// Coming Soon</div>
         <div class="pc-body">
           <div class="pc-cat">Character Rig</div>
-          <div class="pc-title">Project Incoming</div>
-          <div class="pc-desc">Full character rig breakdown — coming soon.</div>
-        </div>
-      </div>
-      <div class="port-card placeholder">
-        <div class="pc-thumb">// Coming Soon</div>
-        <div class="pc-body">
-          <div class="pc-cat">Hard Surface</div>
-          <div class="pc-title">Project Incoming</div>
-          <div class="pc-desc">Hard surface rig breakdown — coming soon.</div>
-        </div>
-      </div>
-      <div class="port-card placeholder">
-        <div class="pc-thumb">// Coming Soon</div>
-        <div class="pc-body">
-          <div class="pc-cat">Facial Rig</div>
-          <div class="pc-title">Project Incoming</div>
-          <div class="pc-desc">Facial rig breakdown — coming soon.</div>
+          <div class="pc-title">Nordic Bandit</div>
+          <div class="pc-desc">Full character rig breakdown — uploading soon.</div>
         </div>
       </div>
       <div class="port-card placeholder">
@@ -254,18 +297,116 @@
           <div class="pc-desc">Project from HatRigs workshop — coming soon.</div>
         </div>
       </div>
-      <div class="port-card placeholder">
-        <div class="pc-thumb">// Coming Soon</div>
-        <div class="pc-body">
-          <div class="pc-cat">Workshop Project</div>
-          <div class="pc-title">Rigging Dojo Project</div>
-          <div class="pc-desc">Project from Rigging Dojo workshop — coming soon.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PORTFOLIO: F1 SF-25 BREAKDOWN ══ -->
+<div class="page" id="page-port-f1">
+  <div class="port-breakdown-wrap">
+
+    <div class="product-back" onclick="showPage('portfolio')">← Back to Portfolio</div>
+
+    <!-- HERO -->
+    <div class="pb-hero">
+      <div class="pb-hero-left">
+        <div class="eyebrow">Hard Surface · 2025</div>
+        <div class="section-h">Formula 1<br><span class="accent">SF-25 Livery</span></div>
+        <p class="pb-desc">A production-ready hard surface rig for the Ferrari SF-25 F1 car. Built entirely in Maya 2022+ with a clean, animator-friendly hierarchy. Features auto-spinning wheels driven by motion, a DRS rear wing system, dual livery switching between Hamilton and Leclerc via custom attribute, and full AnimSchool Picker support.</p>
+        <div class="pb-links">
+          <a href="https://aviarigg.lemonsqueezy.com/checkout/buy/7a7a2f24-189a-4f7c-a471-f98fd43647dc?embed=1" class="lemonsqueezy-button product-buy-btn" style="font-size:clamp(11px,0.9vw,14px);">Buy Rig — €20+ ▶</a>
+          <span onclick="showPage('product-f1')" class="pb-link-ghost">Product Page ▶</span>
+        </div>
+      </div>
+      <div class="pb-hero-right">
+        <div class="product-img-wrap">
+          <div class="shop-card-scan"></div>
+          <img src="./projects/f1_SF25/images/F1_Rendered.png" alt="F1 SF-25" style="width:100%;display:block;">
         </div>
       </div>
     </div>
-    </div><!-- end reel-section -->
+
+    <!-- SPECS STRIP -->
+    <div class="pb-specs">
+      <div class="pb-spec"><span class="pb-spec-label">Software</span><span class="pb-spec-val">Maya 2022+</span></div>
+      <div class="pb-spec"><span class="pb-spec-label">Type</span><span class="pb-spec-val">Hard Surface</span></div>
+      <div class="pb-spec"><span class="pb-spec-label">Textures</span><span class="pb-spec-val">4K / 2K / 1K</span></div>
+      <div class="pb-spec"><span class="pb-spec-label">Liveries</span><span class="pb-spec-val">Hamilton + Leclerc</span></div>
+      <div class="pb-spec"><span class="pb-spec-label">Picker</span><span class="pb-spec-val">AnimSchool</span></div>
+      <div class="pb-spec"><span class="pb-spec-label">Year</span><span class="pb-spec-val">2025</span></div>
+    </div>
+
+    <!-- IMAGE GRID -->
+    <div class="pb-section-label">// Breakdown</div>
+    <div class="pb-grid">
+      <div class="pb-grid-main">
+        <img src="./projects/f1_SF25/images/F1_Rendered.png" alt="Rendered">
+        <div class="pb-grid-caption">// Final Render — Hamilton Livery</div>
+      </div>
+      <div class="pb-grid-side">
+        <div class="pb-grid-item">
+          <img src="./projects/f1_SF25/images/F1_Rig.png" alt="Rig">
+          <div class="pb-grid-caption">// Rig View</div>
+        </div>
+        <div class="pb-grid-item">
+          <img src="./projects/f1_SF25/images/F1_Picker.png" alt="Picker">
+          <div class="pb-grid-caption">// AnimSchool Picker</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pb-grid-bottom">
+      <div class="pb-grid-item">
+        <img src="./projects/f1_SF25/images/F1_FBX.png" alt="FBX">
+        <div class="pb-grid-caption">// FBX Model</div>
+      </div>
+      <div class="pb-grid-item">
+        <img src="./projects/f1_SF25/images/F1_Blender.png" alt="Blender">
+        <div class="pb-grid-caption">// Blender Version</div>
+      </div>
+    </div>
+
+    <!-- TECHNICAL NOTES -->
+    <div class="pb-section-label">// Technical Notes</div>
+    <div class="pb-notes-grid">
+      <div class="pb-note">
+        <div class="pb-note-num">01</div>
+        <div class="pb-note-title">Auto Wheel Spin</div>
+        <div class="pb-note-desc">Wheels spin automatically based on world movement via expression — no manual keyframing needed. Override available for custom rotation.</div>
+      </div>
+      <div class="pb-note">
+        <div class="pb-note-num">02</div>
+        <div class="pb-note-title">DRS System</div>
+        <div class="pb-note-desc">Rear wing elements are driven by a single DRS attribute. Open/close is fully animatable with clean deformation and no geometry intersection.</div>
+      </div>
+      <div class="pb-note">
+        <div class="pb-note-num">03</div>
+        <div class="pb-note-title">Dual Livery</div>
+        <div class="pb-note-desc">Hamilton and Leclerc liveries switchable via a custom attribute on the main controller. No shader reassignment or manual toggling required.</div>
+      </div>
+      <div class="pb-note">
+        <div class="pb-note-num">04</div>
+        <div class="pb-note-title">Hierarchy</div>
+        <div class="pb-note-desc">Fully organized outliner with logical grouping. Root_Scale at the top for global positioning. All controls follow AviaRigg naming conventions.</div>
+      </div>
+    </div>
+
+    <!-- VIDEO -->
+    <div class="pb-section-label">// Showcase Videos</div>
+    <div class="pb-videos">
+      <div class="pb-video">
+        <iframe src="https://www.youtube.com/embed/AbGyZreyAak?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="pb-grid-caption">// Rig Showcase</div>
+      </div>
+      <div class="pb-video">
+        <iframe src="https://www.youtube.com/embed/9_WERFJg4w8?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="pb-grid-caption">// Breakdown</div>
+      </div>
+    </div>
+
   </div>
 </div>
+
 
 <!-- ══ SCRIPT LIBRARY ══ -->
 <div class="page" id="page-library">
@@ -1265,7 +1406,7 @@ function showPage(id) {
 // Handle URL hash on load
 function loadFromHash() {
   const hash = window.location.hash.replace('#', '');
-  const valid = ['home','portfolio','library','shop','about','contact','product-f1'];
+  const valid = ['home','portfolio','library','shop','about','contact','product-f1','port-f1'];
   if (hash && valid.includes(hash)) {
     showPage(hash);
   } else {
