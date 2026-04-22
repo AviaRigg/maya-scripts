@@ -920,7 +920,8 @@ body::before {
 /* Carousel */
 .pb-carousel {
   position: relative;
-  margin-bottom: 64px;
+  max-width: 50%;
+  margin: 0 auto 64px;
 }
 .pb-carousel-track-wrap {
   overflow: hidden;
