@@ -2058,7 +2058,14 @@ body::before {
 }
 
 
-.product-includes-section { margin-bottom: 80px; }
+.thumb-3d {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(10px, 0.9vw, 14px);
+  letter-spacing: 2px;
+  font-style: normal;
+  background: rgba(139,79,200,0.5);
+}
+
 .product-includes-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
