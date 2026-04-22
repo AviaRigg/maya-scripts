@@ -1699,8 +1699,245 @@ body::before {
 }
 
 /* ══════════════════════════════════════════
-   ABOUT
+   SHOP CARD IMAGE THUMB
 ══════════════════════════════════════════ */
+.shop-card--active {
+  opacity: 1;
+  cursor: pointer;
+}
+.shop-card--active:hover {
+  background: var(--surface2);
+}
+.shop-card-thumb--img {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+.shop-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.shop-card--active:hover .shop-card-img {
+  transform: scale(1.04);
+}
+.shop-card-thumb-tag {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(8px, 0.7vw, 10px);
+  letter-spacing: 2px;
+  color: var(--text-bright);
+  background: rgba(6,6,15,0.7);
+  padding: 3px 8px;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════
+   PRODUCT PAGE
+══════════════════════════════════════════ */
+.product-wrap {
+  padding: clamp(48px, 6vw, 100px) clamp(32px, 7vw, 120px);
+}
+.product-back {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(10px, 0.85vw, 12px);
+  letter-spacing: 3px;
+  color: var(--accent);
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 48px;
+  display: inline-block;
+  transition: color 0.2s;
+}
+.product-back:hover { color: var(--accent2); }
+
+.product-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 4vw, 80px);
+  align-items: center;
+  margin-bottom: 80px;
+}
+.product-tagline {
+  font-size: clamp(13px, 1vw, 15px);
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.product-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+.ptag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(9px, 0.75vw, 11px);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent2);
+  border: 1px solid var(--accent);
+  padding: 4px 12px;
+  background: rgba(139,79,200,0.05);
+}
+.product-buy-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+.product-price {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(18px, 1.8vw, 26px);
+  color: var(--text-bright);
+  letter-spacing: 2px;
+}
+.product-buy-btn {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(11px, 0.95vw, 13px);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent2);
+  border: 1px solid var(--accent);
+  background: rgba(139,79,200,0.08);
+  padding: 14px 32px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.product-buy-btn:hover {
+  background: rgba(139,79,200,0.25);
+  color: var(--text-bright);
+}
+.product-license {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(9px, 0.75vw, 11px);
+  letter-spacing: 2px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+.product-hero-img {
+  width: 100%;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.product-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-bottom: 80px;
+}
+.product-feature {
+  background: var(--surface);
+  padding: clamp(20px, 2vw, 32px);
+  transition: background 0.2s;
+}
+.product-feature:hover { background: var(--surface2); }
+.pf-icon {
+  font-size: 18px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.pf-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(14px, 1.2vw, 17px);
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+}
+.pf-desc {
+  font-size: clamp(12px, 0.9vw, 13px);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.product-gallery-section { margin-bottom: 80px; }
+.product-gallery {
+  display: grid;
+  grid-template-columns: 1fr 140px;
+  gap: 12px;
+  align-items: start;
+}
+.product-gallery-main-img {
+  width: 100%;
+  border: 1px solid var(--border);
+  display: block;
+}
+.product-gallery-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.product-thumb {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+.product-thumb:hover { opacity: 0.8; }
+.product-thumb.active {
+  opacity: 1;
+  border-color: var(--accent);
+}
+
+.product-includes-section { margin-bottom: 80px; }
+.product-includes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+.product-include {
+  background: var(--surface);
+  padding: clamp(20px, 2vw, 32px);
+}
+.pi-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(9px, 0.75vw, 11px);
+  letter-spacing: 3px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.pi-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(15px, 1.2vw, 18px);
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+}
+.pi-desc {
+  font-size: clamp(12px, 0.9vw, 13px);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.product-cta {
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--accent);
+  padding: clamp(32px, 4vw, 64px);
+  text-align: center;
+  background: rgba(139,79,200,0.04);
+}
+.product-cta-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 24px;
+}
+
+
 .about-wrap {
   padding: clamp(48px, 6vw, 100px) clamp(32px, 7vw, 120px);
 }

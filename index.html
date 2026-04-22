@@ -898,15 +898,18 @@ exclude_roots = [
     <div class="shop-notice">Products coming soon &mdash; powered by Lemon Squeezy</div>
     <div class="shop-grid">
 
-      <div class="shop-card" style="opacity:1; cursor:pointer;">
-        <div class="shop-card-thumb" style="color:var(--accent2); border-bottom-color:var(--accent);">// AviaRigg</div>
+      <div class="shop-card shop-card--active" onclick="showPage('product-f1')">
+        <div class="shop-card-thumb shop-card-thumb--img">
+          <img src="./projects/f1_SF25/images/F1_Rendered.png" alt="F1 SF-25 Rig" class="shop-card-img">
+          <div class="shop-card-thumb-tag">// Hard Surface</div>
+        </div>
         <div class="shop-card-body">
-          <div class="shop-card-cat">Maya Tool</div>
-          <div class="shop-card-title">AviaRigg Toolkit</div>
-          <div class="shop-card-desc">Full rigging toolkit for Maya — controller shapes, curve library, and more.</div>
+          <div class="shop-card-cat">Maya Rig</div>
+          <div class="shop-card-title">Formula 1 SF-25 Livery</div>
+          <div class="shop-card-desc">Production-ready F1 car rig for Maya — full animation controls, auto-spinning wheels, DRS support, and a suspension-ready setup.</div>
           <div class="shop-card-footer">
-            <span class="shop-card-price">Test Product</span>
-            <a href="https://aviarigg.lemonsqueezy.com/checkout/buy/8e7e99b7-bfc3-4e85-b1cb-3a213a952314?embed=1" class="lemonsqueezy-button shop-buy-btn">Buy →</a>
+            <span class="shop-card-price">€20+</span>
+            <a href="https://aviarigg.lemonsqueezy.com/checkout/buy/7a7a2f24-189a-4f7c-a471-f98fd43647dc?embed=1" class="lemonsqueezy-button shop-buy-btn" onclick="event.stopPropagation()">Buy →</a>
           </div>
         </div>
       </div>
@@ -938,6 +941,124 @@ exclude_roots = [
       </div>
 
     </div>
+  </div>
+</div>
+
+<!-- ══ PRODUCT: F1 SF-25 ══ -->
+<div class="page" id="page-product-f1">
+  <div class="product-wrap">
+
+    <div class="product-back" onclick="showPage('shop')">← Back to Shop</div>
+
+    <div class="product-hero">
+      <div class="product-hero-left">
+        <div class="eyebrow">Hard Surface Rig</div>
+        <div class="section-h">Formula 1<br><span class="accent">SF-25 Livery</span></div>
+        <p class="product-tagline">Production-ready F1 car rig for Maya — complete with full animation controls, auto-spinning wheels, DRS support, and a suspension-ready setup. Perfect for showreels, rigging practice, and high-quality renders.</p>
+        <div class="product-tags">
+          <span class="ptag">Maya 2022+</span>
+          <span class="ptag">Hard Surface</span>
+          <span class="ptag">AnimSchool Picker</span>
+          <span class="ptag">DRS System</span>
+          <span class="ptag">Two Liveries</span>
+        </div>
+        <div class="product-buy-row">
+          <span class="product-price">€20+</span>
+          <a href="https://aviarigg.lemonsqueezy.com/checkout/buy/7a7a2f24-189a-4f7c-a471-f98fd43647dc?embed=1" class="lemonsqueezy-button product-buy-btn">Buy Now →</a>
+        </div>
+        <div class="product-license">// Personal, educational & portfolio use only</div>
+      </div>
+      <div class="product-hero-right">
+        <img src="./projects/f1_SF25/images/F1_Rendered.png" alt="F1 SF-25 Rendered" class="product-hero-img">
+      </div>
+    </div>
+
+    <div class="product-features-grid">
+      <div class="product-feature">
+        <div class="pf-icon">◈</div>
+        <div class="pf-title">Fully Rigged F1 Car</div>
+        <div class="pf-desc">Clean, animator-friendly rig for Maya 2022+. Organized hierarchy and scalable for production.</div>
+      </div>
+      <div class="product-feature">
+        <div class="pf-icon">◎</div>
+        <div class="pf-title">Auto Wheel Spin & Steering</div>
+        <div class="pf-desc">Wheels spin automatically based on motion, with manual steering rotation control.</div>
+      </div>
+      <div class="product-feature">
+        <div class="pf-icon">▣</div>
+        <div class="pf-title">DRS System</div>
+        <div class="pf-desc">Rear wing animates open/closed for full Drag Reduction System control.</div>
+      </div>
+      <div class="product-feature">
+        <div class="pf-icon">⬡</div>
+        <div class="pf-title">AnimSchool Picker Support</div>
+        <div class="pf-desc">Rig picker file included. Requires the free AnimSchool Picker plugin.</div>
+      </div>
+      <div class="product-feature">
+        <div class="pf-icon">✦</div>
+        <div class="pf-title">Two Liveries</div>
+        <div class="pf-desc">Switch between Hamilton and Leclerc skins via a custom attribute — no shader swaps needed.</div>
+      </div>
+      <div class="product-feature">
+        <div class="pf-icon">▲</div>
+        <div class="pf-title">Global Control + Scale</div>
+        <div class="pf-desc">Easy world movement and scene scaling from a single top-level control.</div>
+      </div>
+    </div>
+
+    <div class="product-gallery-section">
+      <div class="eyebrow">Preview</div>
+      <div class="section-h" style="margin-bottom:32px;">Gallery</div>
+      <div class="product-gallery">
+        <div class="product-gallery-main">
+          <img src="./projects/f1_SF25/images/F1_Rendered.png" alt="F1 Rendered" id="gallery-main-img" class="product-gallery-main-img">
+        </div>
+        <div class="product-gallery-thumbs">
+          <img src="./projects/f1_SF25/images/F1_Rendered.png" alt="Rendered" class="product-thumb active" onclick="setGalleryImg(this, './projects/f1_SF25/images/F1_Rendered.png')">
+          <img src="./projects/f1_SF25/images/F1_Rig.png" alt="Rig" class="product-thumb" onclick="setGalleryImg(this, './projects/f1_SF25/images/F1_Rig.png')">
+          <img src="./projects/f1_SF25/images/F1_Picker.png" alt="Picker" class="product-thumb" onclick="setGalleryImg(this, './projects/f1_SF25/images/F1_Picker.png')">
+          <img src="./projects/f1_SF25/images/F1_FBX.png" alt="FBX" class="product-thumb" onclick="setGalleryImg(this, './projects/f1_SF25/images/F1_FBX.png')">
+          <img src="./projects/f1_SF25/images/F1_Blender.png" alt="Blender" class="product-thumb" onclick="setGalleryImg(this, './projects/f1_SF25/images/F1_Blender.png')">
+        </div>
+      </div>
+    </div>
+
+    <div class="product-includes-section">
+      <div class="eyebrow">What You Get</div>
+      <div class="section-h" style="margin-bottom:32px;">Included Files</div>
+      <div class="product-includes-grid">
+        <div class="product-include">
+          <div class="pi-label">// 01</div>
+          <div class="pi-title">Maya File</div>
+          <div class="pi-desc">Fully rigged with picker support. Ready to animate out of the box.</div>
+        </div>
+        <div class="product-include">
+          <div class="pi-label">// 02</div>
+          <div class="pi-title">FBX File</div>
+          <div class="pi-desc">Clean F1 model with no rig — ideal for re-rigging or rendering in other apps.</div>
+        </div>
+        <div class="product-include">
+          <div class="pi-label">// 03</div>
+          <div class="pi-title">Blend File</div>
+          <div class="pi-desc">Unrigged version for Blender users. Rigged version available if requested.</div>
+        </div>
+        <div class="product-include">
+          <div class="pi-label">// 04</div>
+          <div class="pi-title">Texture Pack</div>
+          <div class="pi-desc">4K, 2K, and 1K texture versions included for flexible render pipelines.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-cta">
+      <div class="product-cta-text">Ready to add this to your toolkit?</div>
+      <div class="product-buy-row" style="justify-content:center;">
+        <span class="product-price">€20+</span>
+        <a href="https://aviarigg.lemonsqueezy.com/checkout/buy/7a7a2f24-189a-4f7c-a471-f98fd43647dc?embed=1" class="lemonsqueezy-button product-buy-btn">Buy Now →</a>
+      </div>
+      <div class="product-license">// Personal, educational & portfolio use only. No redistribution or resale.</div>
+    </div>
+
   </div>
 </div>
 
@@ -1115,7 +1236,7 @@ function showPage(id) {
 // Handle URL hash on load
 function loadFromHash() {
   const hash = window.location.hash.replace('#', '');
-  const valid = ['home','portfolio','library','shop','about','contact'];
+  const valid = ['home','portfolio','library','shop','about','contact','product-f1'];
   if (hash && valid.includes(hash)) {
     showPage(hash);
   } else {
@@ -1190,7 +1311,13 @@ function copyCode(id, btn) {
   });
 }
 
-function toggleCategory(id) {
+function setGalleryImg(thumb, src) {
+  document.getElementById('gallery-main-img').src = src;
+  document.querySelectorAll('.product-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+}
+
+
   const catId = 'lcat-' + id.replace('cat-', '');
   const el = document.getElementById(catId);
   if (el) {
