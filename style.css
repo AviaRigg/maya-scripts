@@ -935,21 +935,28 @@ body::before {
   border: 1px solid var(--border);
   position: relative;
   transition: height 0.35s ease;
+  width: 100%;
 }
 .pb-carousel-track {
   display: flex;
   transition: transform 0.4s ease;
   align-items: flex-start;
+  width: 100%;
 }
 .pb-carousel-slide {
   min-width: 100%;
+  max-width: 100%;
+  width: 100%;
   flex-shrink: 0;
   border: none;
+  overflow: hidden;
 }
 .pb-carousel-slide::before,
 .pb-carousel-slide::after { display: none; }
 .pb-carousel-slide img {
   width: 100%;
+  max-width: 100%;
+  height: auto;
   display: block;
 }
 .pb-carousel-btn {
