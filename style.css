@@ -609,7 +609,7 @@ body::before {
 
 .port-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1px;
   background: var(--border);
 }
@@ -1036,7 +1036,7 @@ body::before {
 
   .stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 16px;
     margin-bottom: 48px;
   }
@@ -1560,6 +1560,7 @@ body::before {
   gap: 1px;
   background: var(--border);
   margin-top: 48px;
+  max-width: 60%;
 }
 
 .shop-card {
