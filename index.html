@@ -21,7 +21,21 @@
     <div class="nav-link" id="nl-contact" onclick="showPage('contact')">Contact</div>
     <div class="nav-badge" onclick="showPage('contact')">● Open to Work</div>
   </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile Nav Drawer -->
+<div class="nav-drawer" id="nav-drawer">
+  <div class="nav-link" onclick="showPage('home'); closeMobileNav()">Home</div>
+  <div class="nav-link" onclick="showPage('portfolio'); closeMobileNav()">Portfolio</div>
+  <div class="nav-link" onclick="showPage('library'); closeMobileNav()">Script Library</div>
+  <div class="nav-link" onclick="showPage('shop'); closeMobileNav()">Shop</div>
+  <div class="nav-link" onclick="showPage('about'); closeMobileNav()">About</div>
+  <div class="nav-link" onclick="showPage('contact'); closeMobileNav()">Contact</div>
+  <div class="nav-badge" onclick="showPage('contact'); closeMobileNav()">● Open to Work</div>
+</div>
 
 <!-- ══ HOME ══ -->
 <div class="page active" id="page-home">
@@ -1503,6 +1517,36 @@ fixed = []
 </div>
 
 <script>
+// ── Mobile Nav ──
+function toggleMobileNav() {
+  const drawer = document.getElementById('nav-drawer');
+  const btn = document.getElementById('nav-hamburger');
+  const isOpen = drawer.classList.contains('open');
+  drawer.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+}
+function closeMobileNav() {
+  document.getElementById('nav-drawer').classList.remove('open');
+  document.getElementById('nav-hamburger').classList.remove('open');
+}
+
+// ── Scan Line --thumb-h fix (works at any resolution including 4K) ──
+function updateScanHeights() {
+  document.querySelectorAll('.shop-card-thumb--img').forEach(el => {
+    el.style.setProperty('--thumb-h', el.offsetHeight + 'px');
+  });
+}
+// Run on load, on resize, and on page show
+window.addEventListener('resize', updateScanHeights);
+document.addEventListener('DOMContentLoaded', () => {
+  updateScanHeights();
+  // Also watch each thumb via ResizeObserver for layout shifts
+  if (window.ResizeObserver) {
+    const ro = new ResizeObserver(updateScanHeights);
+    document.querySelectorAll('.shop-card-thumb--img').forEach(el => ro.observe(el));
+  }
+});
+
 // ── Page nav ──
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -1511,8 +1555,10 @@ function showPage(id) {
   const nl = document.getElementById('nl-' + id);
   if (nl) nl.classList.add('active');
   window.scrollTo(0, 0);
+  closeMobileNav();
   if (id === 'library') libHome();
   if (id === 'port-f1') setTimeout(carouselResize, 100);
+  if (id === 'shop') setTimeout(updateScanHeights, 50);
   history.pushState(null, '', '#' + id);
 }
 
