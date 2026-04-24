@@ -502,7 +502,7 @@
           <span style="color:var(--accent);" id="lib-bc-sep" style="display:none;">/</span>
           <span id="lib-bc" style="color:var(--text-bright);">HOME</span>
         </div>
-        <div style="margin-left:auto; font-family:'Share Tech Mono',monospace; font-size:10px; color:var(--text-dim); background:var(--surface2); padding:4px 12px; border:1px solid var(--border);">5 SCRIPTS // 1 REF</div>
+        <div style="margin-left:auto;"></div>
       </div>
       <div class="lib-content">
         <!-- Welcome -->
@@ -540,43 +540,11 @@
           <span class="last-updated">Last updated: April 2026</span>
         </div>
         <div class="recent-list" id="recent-list">
-          <div class="recent-item" data-script="mirror-nonlinear" data-tags="deformer mirror weights nonlinear" onclick="libShow('mirror-nonlinear')">
-            <span class="recent-item-tag">DEFORMERS</span>
+          <div class="recent-item" data-script="fix-shape-editor" data-tags="shape editor blendshape manager shapeEditorManager broken empty missing fix" onclick="libShow('fix-shape-editor')">
+            <span class="recent-item-tag">SHAPE ED.</span>
             <div class="recent-item-info">
-              <span class="recent-item-name">Mirror NonLinear Deformer Weights</span>
-              <span class="recent-item-desc">Mirror painted deformer weights left→right on a symmetrical mesh. Maya 2022+ method.</span>
-            </div>
-            <span class="recent-item-arrow">▶</span>
-          </div>
-          <div class="recent-item" data-script="add-geo-deformer" data-tags="deformer geometry controllers add" onclick="libShow('add-geo-deformer')">
-            <span class="recent-item-tag">DEFORMERS</span>
-            <div class="recent-item-info">
-              <span class="recent-item-name">Add Geometry to Deformer</span>
-              <span class="recent-item-desc">Add a control group or mesh to a nonLinear deformer, with optional hierarchy exclusions.</span>
-            </div>
-            <span class="recent-item-arrow">▶</span>
-          </div>
-          <div class="recent-item" data-script="change-default-value" data-tags="attribute default value enum" onclick="libShow('change-default-value')">
-            <span class="recent-item-tag">ATTRIBUTES</span>
-            <div class="recent-item-info">
-              <span class="recent-item-name">Change Default Attribute Value</span>
-              <span class="recent-item-desc">Edit the default value of any existing attribute, including enums.</span>
-            </div>
-            <span class="recent-item-arrow">▶</span>
-          </div>
-          <div class="recent-item" data-script="transfer-uvs" data-tags="uv uvs transfer polyTransfer uvset" onclick="libShow('transfer-uvs')">
-            <span class="recent-item-tag">UVS</span>
-            <div class="recent-item-info">
-              <span class="recent-item-name">Transfer UVs</span>
-              <span class="recent-item-desc">Transfer UVs from one mesh to multiple targets using polyTransfer. Select source first, then shift-select targets.</span>
-            </div>
-            <span class="recent-item-arrow">▶</span>
-          </div>
-          <div class="recent-item" data-script="ikfk-switch" data-tags="ik fk switch match transform arm settings IKFK" onclick="libShow('ikfk-switch')">
-            <span class="recent-item-tag">IK / FK</span>
-            <div class="recent-item-info">
-              <span class="recent-item-name">IK / FK Switch with Match</span>
-              <span class="recent-item-desc">Toggle arm between IK and FK while preserving pose via matchTransform. Assign to a picker button.</span>
+              <span class="recent-item-name">Fix Broken Shape Editor</span>
+              <span class="recent-item-desc">Fixes a blank Shape Editor caused by a duplicate shapeEditorManager node. Migrates all blendshapes to the primary node.</span>
             </div>
             <span class="recent-item-arrow">▶</span>
           </div>
@@ -588,11 +556,43 @@
             </div>
             <span class="recent-item-arrow">▶</span>
           </div>
-          <div class="recent-item" data-script="fix-shape-editor" data-tags="shape editor blendshape manager shapeEditorManager broken empty missing fix" onclick="libShow('fix-shape-editor')">
-            <span class="recent-item-tag">SHAPE ED.</span>
+          <div class="recent-item" data-script="ikfk-switch" data-tags="ik fk switch match transform arm settings IKFK" onclick="libShow('ikfk-switch')">
+            <span class="recent-item-tag">IK / FK</span>
             <div class="recent-item-info">
-              <span class="recent-item-name">Fix Broken Shape Editor</span>
-              <span class="recent-item-desc">Fixes a blank Shape Editor caused by a duplicate shapeEditorManager node. Migrates all blendshapes to the primary node.</span>
+              <span class="recent-item-name">IK / FK Switch with Match</span>
+              <span class="recent-item-desc">Toggle arm between IK and FK while preserving pose via matchTransform. Assign to a picker button.</span>
+            </div>
+            <span class="recent-item-arrow">▶</span>
+          </div>
+          <div class="recent-item" data-script="transfer-uvs" data-tags="uv uvs transfer polyTransfer uvset" onclick="libShow('transfer-uvs')">
+            <span class="recent-item-tag">UVS</span>
+            <div class="recent-item-info">
+              <span class="recent-item-name">Transfer UVs</span>
+              <span class="recent-item-desc">Transfer UVs from one mesh to multiple targets using polyTransfer. Select source first, then shift-select targets.</span>
+            </div>
+            <span class="recent-item-arrow">▶</span>
+          </div>
+          <div class="recent-item" data-script="change-default-value" data-tags="attribute default value enum" onclick="libShow('change-default-value')">
+            <span class="recent-item-tag">ATTRIBUTES</span>
+            <div class="recent-item-info">
+              <span class="recent-item-name">Change Default Attribute Value</span>
+              <span class="recent-item-desc">Edit the default value of any existing attribute, including enums.</span>
+            </div>
+            <span class="recent-item-arrow">▶</span>
+          </div>
+          <div class="recent-item" data-script="add-geo-deformer" data-tags="deformer geometry controllers add" onclick="libShow('add-geo-deformer')">
+            <span class="recent-item-tag">DEFORMERS</span>
+            <div class="recent-item-info">
+              <span class="recent-item-name">Add Geometry to Deformer</span>
+              <span class="recent-item-desc">Add a control group or mesh to a nonLinear deformer, with optional hierarchy exclusions.</span>
+            </div>
+            <span class="recent-item-arrow">▶</span>
+          </div>
+          <div class="recent-item" data-script="mirror-nonlinear" data-tags="deformer mirror weights nonlinear" onclick="libShow('mirror-nonlinear')">
+            <span class="recent-item-tag">DEFORMERS</span>
+            <div class="recent-item-info">
+              <span class="recent-item-name">Mirror NonLinear Deformer Weights</span>
+              <span class="recent-item-desc">Mirror painted deformer weights left→right on a symmetrical mesh. Maya 2022+ method.</span>
             </div>
             <span class="recent-item-arrow">▶</span>
           </div>
@@ -1888,32 +1888,78 @@ function toggleLibCat(header, id) {
   header.classList.toggle('open');
 }
 
-function libFilter(q) {
-  q = q.toLowerCase();
+// ── Smart Search ──────────────────────────────────────────────────
+// Normalises input: lowercases, collapses whitespace, strips special chars
+// Then scores each item using token matching + substring matching + fuzzy run
+// so "non linear", "nonlinear", "nlin", "ik fk", "ikfk" all resolve correctly
+
+function normalise(s) {
+  return s.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+// Returns true if all tokens in the query appear somewhere in the haystack
+function tokenMatch(query, haystack) {
+  const tokens = normalise(query).split(' ').filter(Boolean);
+  const norm = normalise(haystack);
+  return tokens.every(t => norm.includes(t));
+}
+
+// Returns true if the query (collapsed, no spaces) appears as a subsequence
+// in the haystack (collapsed). Handles "nonlinear" matching "non linear".
+function collapseMatch(query, haystack) {
+  const q = query.replace(/\s+/g, '');
+  const h = normalise(haystack).replace(/\s+/g, '');
+  return h.includes(q);
+}
+
+// Fuzzy: every char of query appears in order in haystack
+function fuzzyMatch(query, haystack) {
+  const q = query.replace(/\s+/g, '').toLowerCase();
+  const h = normalise(haystack).replace(/\s+/g, '');
+  let qi = 0;
+  for (let hi = 0; hi < h.length && qi < q.length; hi++) {
+    if (h[hi] === q[qi]) qi++;
+  }
+  return qi === q.length;
+}
+
+function smartMatch(query, textContent, tags) {
+  if (!query) return true;
+  const combined = textContent + ' ' + tags;
+  return tokenMatch(query, combined)
+      || collapseMatch(query, combined)
+      || fuzzyMatch(query, combined);
+}
+
+function runFilter(q) {
+  // Sidebar items
   document.querySelectorAll('.lni[data-script]').forEach(item => {
     const tags = item.getAttribute('data-tags') || '';
-    const text = item.textContent.toLowerCase();
-    item.style.display = (text.includes(q) || tags.includes(q)) ? '' : 'none';
+    const text = item.textContent;
+    item.style.display = smartMatch(q, text, tags) ? '' : 'none';
   });
-  syncHomeIndex(q);
+  // Homepage index rows
+  document.querySelectorAll('.recent-item[data-script]').forEach(item => {
+    const tags = item.getAttribute('data-tags') || '';
+    const text = item.textContent;
+    item.style.display = smartMatch(q, text, tags) ? '' : 'none';
+  });
+}
+
+function libFilter(q) {
+  runFilter(q);
+  const sidebar = document.getElementById('libSearch');
+  if (sidebar && sidebar !== document.activeElement) sidebar.value = q;
 }
 
 function filterScripts(q) {
-  q = q.toLowerCase();
-  document.querySelectorAll('.lni[data-script]').forEach(item => {
-    const tags = item.getAttribute('data-tags') || '';
-    const text = item.textContent.toLowerCase();
-    item.style.display = (text.includes(q) || tags.includes(q)) ? '' : 'none';
-  });
-  syncHomeIndex(q);
+  runFilter(q);
+  const sidebar = document.getElementById('libSearch');
+  if (sidebar) sidebar.value = q;
 }
 
 function syncHomeIndex(q) {
-  document.querySelectorAll('.recent-item[data-script]').forEach(item => {
-    const tags = item.getAttribute('data-tags') || '';
-    const text = item.textContent.toLowerCase();
-    item.style.display = (!q || text.includes(q) || tags.includes(q)) ? '' : 'none';
-  });
+  // kept for compatibility — logic is now inside runFilter
 }
 
 function syncSidebarSearch(val) {
